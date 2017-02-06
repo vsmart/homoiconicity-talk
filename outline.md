@@ -1,18 +1,49 @@
 # Outline
 
-## Homoiconicity
+# Homoiconicity (aka WHATS HOMOICONICITY)
 
 * definition
 * in comp sci...
 * in clojure...
 
-## code is data (gen, vis, analyse)
+## how does it work?
+
+* lispy s-expressions
+* everything is everything
 
 ## quote and eval
 
-## macros
+* treat code as data, treat data as code
+* aka perspective
+
+# what does it let us do? (aka THE ADVENTURES)
+
+===> actually the main part
 
 
-## summary
+## code is data (gen, vis, analyse)
+
+### generate
+
+* self-healing code
+* mutation testing
+* macros
+* manipulate the AST
+* something something clojure.spec
+
+### visualise
+
+* needs examples
+* a quil sketch that shows you how many lines it's written in?
+
+### analyse
+
+* needs examples
+
+## what do these tell us?
+* homoiconicity is a super _powerful_ concept of clojure
+
+
+## summary (where did we go)
 
 oh my, so much to say!
