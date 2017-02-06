@@ -9,7 +9,7 @@
 ## how does it work?
 
 * lispy s-expressions
-* everything is everything
+* everything is everything (turtles all the way downj)
 
 ## quote and eval
 
@@ -21,13 +21,17 @@
 ===> actually the main part
 
 
-## code is data (gen, vis, analyse)
+## code is *data* (gen, vis, analyse)
+
+* clojure is data-first
+* data-description comes
+
+## but what about macros?
 
 ### generate
 
 * self-healing code
 * mutation testing
-* macros
 * manipulate the AST
 * something something clojure.spec
 
