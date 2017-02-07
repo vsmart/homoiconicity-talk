@@ -15,13 +15,22 @@
         font-family: 'Yanone Kaffeesatz';
         font-weight: normal;
       }
+      .main {
+        background-color: #6B5983;
+        color: #F7ECDB;
+      }
+      .normal {
+        background-color:#F7ECDB;
+        color:#6B5983;
+      }
+
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
     </style>
   </head>
   <body>
     <textarea id="source">
 
-class: center, middle
+class: center, middle, main
 
 # Adventures with Homoiconicity
 
@@ -29,9 +38,13 @@ class: center, middle
 
 ---
 
-# homo\*icon\*icity
+class: center, middle, normal
+
+# Homo\*icon\*icity
 
 ---
+
+class: normal
 
 ### homo\*icon\*icity
 
@@ -41,50 +54,54 @@ class: center, middle
 
 ---
 
+class: normal
+
 ### homo\*icon\*icity
 
 ## _In computer programming, homoiconicity is a property [...] in which the program structure is similar to its syntax, <br><br>and therefore the program's internal representation can be inferred by reading the text's layout._
 
 ---
 
+class: main
+
 ## Homoiconicity in clojure
 
 ---
-class: center, middle
+class: center, middle, normal
 
 ### it's ~~turtles~~ s-expressions all the way down
 
 ---
 
+class: center, middle, normal
 # So, what's an S-expression?
 
 ---
-class: center, middle
+class: center, middle, main
 # Code is Data. Data is Code.
 
 ---
-
-# What can we do with data?
-
----
-class: middle
+class: middle, normal
 ### In Clojure we have `quote` and `eval`.
 
 ---
 
+class: normal
 # `quote`: Treat Code as Data
 
 ---
 
+class: normal
 # `eval`: Treat Data as Code
 
 ---
 
-class: middle
+class: middle, main
 ## What about macros?
 
 ---
 
+class: normal
 ## Macro:
 
 ### a way to extend the compilers to use other syntactic constructs as primitives
@@ -92,6 +109,7 @@ class: middle
 
 ---
 
+class: normal
 ### Macro:
 #### a way to extend the compilers to use other syntactic constructs as primitives
 
@@ -99,16 +117,24 @@ class: middle
 
 ---
 
+class: normal
 ## Clojure programmers & macros:
 
 # A complicated relationship. 💔
 
 ---
 
+class: main
 # Clojure as a _Data-first_ language
 
 ---
 
+class: normal
+# What can we do with data?
+
+---
+
+class: normal
 ### What can we do with data?
 
 # Visualise it
@@ -117,64 +143,75 @@ class: middle
 
 ---
 
+class: normal
 ## Self-modifying code
 
 ---
 
+class: normal
 ### Case study:
 
 # Mutants by @jstepien
 
 ---
 
+class: normal
 <example>
 
 ---
 
+class: normal
 ### Case study:
 
 # TweeGeeMee bot by @rogerallen
 
 ---
 
+class: normal
 <example>
 
 
 ---
 
+class: normal
 ### Case study:
 
 # Persistent data structures by @hanshuebner
 
 ---
 
+class: normal
 <example>
 
 ---
 
+class: normal
 ### Case study:
 
 # Self-healing Code by @gigasquid
 
 ---
 
+class: normal
 <example>
 
 ---
-class: center, middle
+class: center, middle, main
 ## Summary
 
 ---
 
+class: normal
 ### Yes, Homoiconicity is what makes it possible to write macros.
 
 ---
 
-###
+class: normal
+## But (perhaps more importantly) it also allows for many other great uses.
 
 ---
 
-class: center, middle
+class: center, middle, main
 # thank you 💖
 
 Tweet @franschm or Email me at hello@franka.tech.
