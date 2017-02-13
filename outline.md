@@ -20,6 +20,14 @@
 
 ===> actually the main part
 
+* visualise
+* analyse
+* generate
+
+* macros
+* ???
+* profit
+
 
 ## code is *data* (gen, vis, analyse)
 
