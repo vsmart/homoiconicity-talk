@@ -97,12 +97,13 @@ class: normal
 
 ---
 
+class: normal
+
 ### In Clojure, Homoiconicity means that the languages underlying representation is the same as the language's data structures.
 
-
-<code>
-
-</code>
+```clojure
+.
+```
 
 ---
 class: center, middle, normal
@@ -115,32 +116,75 @@ class: center, middle, normal
 # So, what's an S-expression?
 
 ---
+class: normal
+## EDN: Extensible Data Notation
+
+---
 class: center, middle, main
 # Code is Data. Data is Code.
 
 ---
 
-class: middle, normal
-### In Clojure we have `quote` and `eval`.
+class: normal
+## In Clojure we have \`quote\` and \`eval\`.
 
 ---
 
 class: normal
-# `quote`: Treat Code as Data
+
+### quote and eval
+# quote: Treat a form as Data
+
+```clojure
+user=> (+ 1 5)
+6
+
+user=> (quote (+ 1 5))
+(+ 1 5)
+
+user=> '(+ 1 5)
+(+ 1 5)
+
+```
 
 ---
 
 class: normal
-# `eval`: Treat Data as Code
+
+### quote and eval
+# eval: Treat a form as Code
+
+```clojure
+user=> (+ 1 5)
+6
+
+user=> '(+ 1 5)
+(+ 1 5)
+
+user=>(eval '(+ 1 5))
+6
+
+```
+???
+
+* our repl does this automatically
+
 
 ---
 class: normal, center, middle
 # It's about perspective.
 
 ---
+class: normal
+
+# The interesting space is in the middle.
+
+---
 
 class: middle, main
-## What about macros?
+## Metaprogramming
+
+# aka: What about macros?
 
 ---
 
@@ -158,13 +202,9 @@ class: normal
 # e.g. `or`, `and`, `when`
 
 ---
-class: normal
-## EDN: Extensible Data Notation
-
----
 
 class: normal
-## Clojure programmers & macros:
+## Clojure programmers \& macros:
 
 # A complicated relationship. 💔
 
@@ -226,8 +266,46 @@ class: normal
 ---
 
 class: normal
-<example>
+### TweeGeeMee bot by @rogerallen
 
+.center[![TweeGeeMee bot tweet](images/tweet.png)]
+
+---
+class: normal
+### TweeGeeMee bot by @rogerallen
+
+## Inspecting one entity
+
+```clojure
+{ :name "170218_023156_M.clj"
+  :parents ["170217_203119_M.clj"]
+  :hash -1253854099
+  :image-hash 1645688389
+  :code
+  (clisk.live/adjust-hsl
+    (clisk.live/x
+      (clisk.live/normalize
+        (clisk.live/vcos
+          (clisk.live/t [-0.7439 0.5524 1.017 -0.2864])))) (clisk.live/v- (clisk.live/vfrac (clisk.live/adjust-hsl (clisk.live/x (clisk.live/normalize (clisk.live/vcos (clisk.live/t [-0.7439 0.5524 1.017 -0.2864]))))
+    (clisk.live/scale (clisk.live/vmod (clisk.live/min-component [2.0579 1.6987 -2.8491 -2.6116]) [2.6967 1.7232]) clisk.live/pos))) clisk.live/pos))
+}
+
+```
+
+---
+class: normal
+### TweeGeeMee bot by @rogerallen
+
+## Reproducing the image
+
+```clojure
+=> (def code '(clisk.live/vdivide (clisk.live/vfrac (clisk.live/vmin (clisk.live/v+ (clisk.live/alpha clisk.live/grain) [-0.9438 0.4027 2.3753 1.7962]) (clisk.live/sigmoid (clisk.live/vfloor [0.4416 -2.6627 -1.6566])))) (clisk.live/gradient (clisk.live/square (clisk.live/v- [-0.2226 -2.2105 -2.7124 -1.7799] clisk.live/vsnoise)))))
+
+=> (show (eval code) :width 720 :height 720)
+
+```
+
+.center[![tweegeemee image screenshot](images/reproduced.png)]
 
 ---
 
@@ -276,7 +354,9 @@ Tweet @franschm or Email me at hello@franka.tech.
 
 PS: I'm looking for a job.
 
-----
+---
+
+class: normal
 
 # Sources
 

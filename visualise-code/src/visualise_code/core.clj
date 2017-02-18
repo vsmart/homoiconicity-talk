@@ -11,7 +11,7 @@
    :angle 0})
 
 (defn update-state [state]
-  state )
+  state)
 
 (defn mangoes [] 0)
 (defn mangoses [] 0)
