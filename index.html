@@ -129,11 +129,28 @@ class: normal
 ## In Clojure we have \`quote\` and \`eval\`.
 
 ---
-
+layout: true
 class: normal
 
 ### quote and eval
 # quote: Treat a form as Data
+
+---
+```clojure
+user=> (+ 1 5)
+6
+```
+---
+
+```clojure
+user=> (+ 1 5)
+6
+
+user=> (quote (+ 1 5))
+(+ 1 5)
+
+```
+---
 
 ```clojure
 user=> (+ 1 5)
@@ -148,7 +165,7 @@ user=> '(+ 1 5)
 ```
 
 ---
-
+layout: false
 class: normal
 
 ### quote and eval
@@ -161,14 +178,13 @@ user=> (+ 1 5)
 user=> '(+ 1 5)
 (+ 1 5)
 
-user=>(eval '(+ 1 5))
+user=> (eval '(+ 1 5))
 6
 
 ```
 ???
 
 * our repl does this automatically
-
 
 ---
 class: normal, center, middle
@@ -196,15 +212,60 @@ class: normal
 ---
 
 class: normal
-### Macro:
-#### a way to extend the compilers to use other syntactic constructs as primitives
+### Macros
+## `or`, `and`, `when`
 
-# e.g. `or`, `and`, `when`
+```clojure
+user=> (def n 42)
+#'user/n
+
+user=> (when (even? n) "n is an even number!")
+"n is an even number!"
+
+user=> (def n 43)
+#'user/n
+
+user=> (when (even? n) "n is an even number!")
+nil
+```
+---
+
+layout: true
+class: normal
+### Macros
+## macroexpand: a neat trick!
 
 ---
 
+```clojure
+user=> (when (even? n) "n is an even number!")
+"n is an even number!"
+```
+---
+
+```clojure
+user=> (when (even? n) "n is an even number!")
+"n is an even number!"
+
+user=> (macroexpand (when (even? n) "n is an even number!"))
+"n is an even number!"
+```
+---
+
+```clojure
+user=> (when (even? n) "n is an even number!")
+"n is an even number!"
+
+user=> (macroexpand (when (even? n) "n is an even number!"))
+"n is an even number!"
+
+user=> (macroexpand '(when (even? n) "n is an even number!"))
+(if (even? n) (do "n is an even number!"))
+```
+---
+layout: false
 class: normal
-## Clojure programmers \& macros:
+## Clojure programmers & macros:
 
 # A complicated relationship. 💔
 
@@ -235,7 +296,7 @@ class: normal
 ---
 
 class: main
-## So, let's go on an adventure! 🐉
+## So, let's go on an adventure! ✌️️
 <br><br>
 # And see what happens if we do these things with our code.
 
@@ -254,7 +315,6 @@ class: normal
 ---
 
 class: normal
-<example>
 
 ---
 
@@ -309,17 +369,6 @@ class: normal
 
 ---
 
-class: normal
-### Case study:
-
-# Persistent data structures by @hanshuebner
-
----
-
-class: normal
-<example>
-
----
 
 class: normal
 ### Case study:
@@ -328,8 +377,17 @@ class: normal
 
 ---
 
+## Using clojure.spec to generate code
+
+```clojure
+```
+---
+
 class: normal
-<example>
+---
+
+class: normal
+
 
 ---
 class: center, middle, main
@@ -360,7 +418,7 @@ class: normal
 
 # Sources
 
-.right[Taken from [Wikipedia: Homoiconicity](https://en.wikipedia.org/wiki/Homoiconicity)]
+* Taken from [Wikipedia: Homoiconicity](https://en.wikipedia.org/wiki/Homoiconicity)
 
 
     </textarea>
