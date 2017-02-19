@@ -96,19 +96,37 @@ class: normal
 * Might need a rephrase
 
 ---
-
+layout: true
 class: normal
 
-### In Clojure, Homoiconicity means that the languages underlying representation is the same as the language's data structures.
+### Same Representation
 
-```clojure
-.
-```
+<br><br>
 
 ---
+
+```clojure
+user=> (+ 1 2)
+3
+
+```
+
+=> A list of the forms `+`, `1` and `2`.
+
+---
+```clojure
+user=> (def time-til-lunch (+ (* 1/2 30) 30 (rand-n 30))
+49N
+```
+
+=> A list of the forms `def`, `time-til-lunch`, `'(+ (* 1/2 30) 30 (rand-n 30))`
+
+---
+
+layout: false
 class: center, middle, normal
 
-### it's ~~turtles~~ s-expressions all the way down
+### It's ~~turtles~~ s-expressions all the way down!
 
 ---
 
@@ -118,6 +136,14 @@ class: center, middle, normal
 ---
 class: normal
 ## EDN: Extensible Data Notation
+
+### The set of data structures Clojure uses (kind of like JSON to Javascript)
+
+```clojure
+* Sequences '(1 2 3)
+* Vectors [1 2 3]
+* Numbers 1, 2
+```
 
 ---
 class: center, middle, main
@@ -136,6 +162,7 @@ class: normal
 # quote: Treat a form as Data
 
 ---
+
 ```clojure
 user=> (+ 1 5)
 6
@@ -200,19 +227,30 @@ class: normal
 class: middle, main
 ## Metaprogramming
 
-# aka: What about macros?
+# What about macros?
 
 ---
 
 class: normal
 ## Macro:
 
-### a way to extend the compilers to use other syntactic constructs as primitives
+### "a way to extend the compiler to use other syntactic constructs as primitives"
+
+---
+
+class: normal
+
+### Macros
+
+## Macros are omnipresent in everyday Clojure programming.
+
+## (even when you don't know you're using them!)
 
 ---
 
 class: normal
 ### Macros
+
 ## `or`, `and`, `when`
 
 ```clojure
@@ -369,7 +407,6 @@ class: normal
 
 ---
 
-
 class: normal
 ### Case study:
 
@@ -377,31 +414,40 @@ class: normal
 
 ---
 
-## Using clojure.spec to generate code
+### Self-healing Code by @gigasquid
+
+# clojure.spec
 
 ```clojure
+
+code example here
 ```
----
-
-class: normal
----
-
-class: normal
-
 
 ---
+
+### Self-healing Code by @gigasquid
+
+```clojure
+
+more related to self-healing code here
+
+```
+
+---
+
 class: center, middle, main
-## Summary
+## In conclusion...
 
 ---
 
 class: normal, middle, center
-### Yes, Homoiconicity is what makes it possible to write macros.
+# Yes.
+## Homoiconicity is what allows for <br> writing macros in Clojure.
 
 ---
 
 class: normal, middle, center
-## But (perhaps more importantly) it also allows for many other great uses.
+## But - perhaps more importantly - it also allows for many other great uses.
 
 ---
 
