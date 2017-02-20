@@ -32,7 +32,7 @@
 
 class: center, middle, main
 
-# Adventures with Homoiconicity
+# Adventures in Homoiconicity
 
 ### An exploration by Franka @franschm
 
@@ -64,13 +64,6 @@ class: normal
 # [homo] · _Greek_ · 'same'
 
 # [icon] · _Greek_ · 'representation'
-
-
-???
-
-* let's look at the roots of the word to give us some indicator
-* doing this is also a great way to actually remember how to pronounce this word
-and not get stuck with <homoiconic...ity>?
 
 ---
 
@@ -133,7 +126,7 @@ class: normal
 
 # EDN: Extensible Data Notation
 
-### The set of data structures Clojure uses (kind of like JSON to Javascript).
+### The set of data structures Clojure uses
 
 ```clojure
 * Sequences '(1 2 3)
@@ -142,6 +135,10 @@ class: normal
 
 * Numbers 1, 2
 ```
+
+???
+
+* kind of like JSON to Javascript
 
 ---
 
@@ -231,7 +228,7 @@ user=> (eval '(+ 1 5))
 
 layout: false
 class: normal
-# Clojure Programmers are used to handling data.
+# Clojure programmers are used to handling data.
 
 ---
 
@@ -240,19 +237,50 @@ class: normal
 
 ---
 
+layout: true
 class: normal
 ### What can we do with data?
 
-# Visualise it
-# Analyse it
-# Generate it
+---
+
+# * Visualise it 👀
 
 ---
 
+# * Visualise it 👀
+# * Analyse it 📈
+
+---
+
+# * Visualise it 👀
+# * Analyse it 📈
+# * Generate it 💧
+
+---
+layout: true
+class: normal
+
+## Since Clojure is homoiconic, can we ...
+
+# * Visualise our code 👀
+
+---
+
+# * Visualise our code 👀
+# * Analyse our code 📈
+
+---
+# * Visualise our code 👀
+# * Analyse our code 📈
+# * Generate more code! 💧
+
+---
+
+layout: false
 class: main
-## So, let's go on an adventure! ✌️️
+# So, let's go on an adventure! ✌️️
 <br><br>
-# And see what happens if we do these things with our code.
+
 
 ---
 
@@ -279,11 +307,40 @@ class: normal
 ## (even when you don't know you're using them!)
 
 ---
-
+layout: true
 class: normal
 ### Macros
 
 ## `or`, `and`, `when`
+---
+
+```clojure
+user=> (def n 42)
+#'user/n
+```
+---
+
+```clojure
+user=> (def n 42)
+#'user/n
+
+user=> (when (even? n) "n is an even number!")
+"n is an even number!"
+```
+---
+
+```clojure
+user=> (def n 42)
+#'user/n
+
+user=> (when (even? n) "n is an even number!")
+"n is an even number!"
+
+user=> (def n 43)
+#'user/n
+nil
+```
+---
 
 ```clojure
 user=> (def n 42)
@@ -298,8 +355,8 @@ user=> (def n 43)
 user=> (when (even? n) "n is an even number!")
 nil
 ```
----
 
+---
 layout: true
 class: normal
 ### Macros
