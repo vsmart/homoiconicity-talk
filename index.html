@@ -40,6 +40,18 @@ class: center, middle, main
 
 class: center, middle, normal
 
+# Code is Data.
+
+---
+class: center, middle, normal
+
+# Code is Data.
+
+# Data is Code?
+
+---
+
+class: center, middle, normal
 # Homo·icon·icity
 
 ---
@@ -66,23 +78,11 @@ class: normal
 
 ### Homo·icon·icity
 
-## _Homoiconicity is a property [...] in which the program structure is similar to its syntax, <br><br>and therefore the program's internal representation can be inferred by reading the text's layout._
-<br><br><br>
-
-.right[From [Wikipedia: Homoiconicity](https://en.wikipedia.org/wiki/Homoiconicity)]
-
----
-
-class: normal
-
-### Homo·icon·icity
-
 <br>
 ## _Clojure is a *homoiconic* language, <br><br>which is a fancy term describing the fact that Clojure programs are represented by Clojure data structures._
 <br><br><br>
 
 .right[From [Clojure.org](https://clojure.org/reference/reader)]
-
 
 ---
 
@@ -96,12 +96,8 @@ class: normal
 <br><br><br>
 .right[From Franka]
 
-???
-
-* In my words, ....
-* Might need a rephrase
-
 ---
+
 layout: true
 class: normal
 
@@ -129,23 +125,15 @@ user=> (def time-til-lunch (+ (* 1/2 30) 30 (rand-n 30))
 
 class: normal
 
-## It's ~~turtles~~ ~~s-expressions~~ EDN all the way down!
+## It's ~~turtles~~ the same data structures all the way down!
 
 ---
 
-class: normal
-## What's an S-expression?
-
-# a parenthesized list: '(def clojure-rocks 42)
-
-# TODO: replace s-expressions ~~ from above with edn
-
----
 class: normal
 
 # EDN: Extensible Data Notation
 
-### The set of data structures Clojure uses (kind of like JSON to Javascript)
+### The set of data structures Clojure uses (kind of like JSON to Javascript).
 
 ```clojure
 * Sequences '(1 2 3)
@@ -203,11 +191,29 @@ user=> '(+ 1 5)
 ```
 
 ---
-layout: false
+layout: true
 class: normal
 
 ### quote and eval
 # eval: Treat a form as Code
+
+---
+
+```clojure
+user=> (+ 1 5)
+6
+```
+---
+
+```clojure
+user=> (+ 1 5)
+6
+
+user=> '(+ 1 5)
+(+ 1 5)
+
+```
+---
 
 ```clojure
 user=> (+ 1 5)
@@ -220,16 +226,10 @@ user=> (eval '(+ 1 5))
 6
 
 ```
-???
-
-* our repl does this automatically
-
----
-class: normal, center, middle
-# It's about perspective.
 
 ---
 
+layout: false
 class: normal
 # Clojure Programmers are used to handling data.
 
