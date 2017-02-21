@@ -62,27 +62,32 @@ class: normal, middle, center
 
 ---
 
-# It's easy to write, manipulate, reason about Clojure programs -
-
-# in Clojure.
+# It's easy to <br> <br>  write, manipulate and reason about Clojure programs <br> <br> with Clojure.
 
 ---
-
 layout: false
+class: main, center
+
+<br>
+# Homo·icon·icity
+# is
+# ⚡⚡⚡ Clojure's superpower!! ⚡⚡⚡
+
+
+---
 class: normal
 
-## Homo·icon·icity is...
+## Homo·icon·icity
 
-# a special property of Clojure programming language
+# How exactly does it work?
 
 ---
-class: main
+class: normal
 
-## Homo·icon·icity is...
+## Homo·icon·icity
 
-<br> <br>
-
-# .center[Clojure's superpower!! ⚡⚡⚡]
+# How exactly does it work?
+# What is the power made of?
 
 ---
 
@@ -100,7 +105,7 @@ class: normal
 
 class: normal
 
-### Homo·icon·icity
+## Homo·icon·icity
 
 <br>
 ## _Clojure is a *homoiconic* language, <br><br>which is a fancy term describing the fact that Clojure programs are represented by Clojure data structures._
@@ -110,11 +115,10 @@ class: normal
 
 ---
 
-
 layout: true
 class: normal
 
-### Same Representation
+### Data and Code Representation
 
 ---
 
@@ -162,11 +166,6 @@ class: normal
 
 ---
 
-layout: false
-class: center, middle, main
-# Code is Data. Data is Code.
-
----
 class: normal
 ## In Clojure we have \`quote\` and \`eval\`.
 
@@ -248,6 +247,27 @@ user=> (eval '(+ 1 5))
 
 layout: false
 class: normal
+
+## These are some of the building blocks of homoiconicity.
+
+---
+layout: false
+class: normal, center
+
+## What makes this power ... so powerful? 🤔
+
+---
+
+layout: false
+class: normal, center
+
+## What makes this power ... so powerful? 🤔
+
+## In other words: what does it let us do?
+---
+
+layout: false
+class: normal
 # Clojure programmers are used to handling data.
 
 ---
@@ -280,7 +300,7 @@ class: normal
 layout: true
 class: normal
 
-## Since Clojure is homoiconic, can we ...
+### Since Clojure is homoiconic, we can ...
 
 ---
 
@@ -301,12 +321,99 @@ class: normal
 
 layout: false
 class: main
-# So, let's go on an adventure! ✌️️
+# Let's find out!
+# and go on an adventure! ✌️️
 <br><br>
 
 
 ---
 
+class: normal
+
+## the adventure
+
+# part 1: visualise yourself
+
+---
+
+class: normal
+
+## the adventure
+
+# part 1: visualise yourself
+
+# how I taught a program to draw stats on itself
+
+---
+
+layout: true
+class: normal
+
+## part 1: visualise yourself
+
+---
+
+[gif]
+
+### this project changes background colour while you're working
+
+---
+
+```clojure
+
+(def current-ns *ns*)
+```
+
+---
+
+```clojure
+
+(def current-ns *ns*)
+
+(defn draw-state [state]
+  (let [fn-count (count (keys (ns-publics current-ns)))
+        color (* (/ 1 (- fn-count 3) ) 255)]
+    (q/background color)
+    (q/stroke 0)
+    (q/text (str fn-count) 20 20)
+    (q/text (str color) 20 40)
+    (q/text (str current-ns) 20 60)))
+
+
+```
+
+---
+
+[ another gif ]
+
+---
+
+class: normal
+layout: true
+
+## take aways ➡️️
+<br> <br>
+
+---
+
+---
+
+## * it's easy for a Clojure program to read itself
+
+---
+
+## * it's easy for a Clojure program to read itself
+## * this "self-reading" feels like self-awareness - very futuristic!
+
+---
+
+## * it's easy for a Clojure program to read itself
+## * this "self-reading" feels like self-awareness - very futuristic!
+## * once you have program data, visualising it is trivial!
+
+---
+
+layout: false
 class: middle, main
 ## Metaprogramming
 
@@ -413,21 +520,34 @@ user=> (macroexpand '(when (even? n) "n is an even number!"))
 (if (even? n) (do "n is an even number!"))
 ```
 ---
+
+class: normal
+layout: true
+
+## take aways ➡️️
+<br> <br>
+
+---
+
+---
+
+## * homoiconicity allows for meta-programming
+
+---
+
+## * homoiconicity allows for meta-programming
+## * writing macros let us extend the language
+
+---
+
+## * homoiconicity allows for meta-programming
+## * writing macros let us extend the language
+## * writing macros let us create our own language!
+
+---
+
 layout: false
 class: normal
-## Clojure programmers & macros:
-
-# A complicated relationship. 💔
-
----
-
-class: main
-# Clojure as a _Data-first_ language
-
----
-
-class: normal
-## Self-modifying code
 
 ---
 
@@ -451,7 +571,6 @@ class: normal
 
 ```clojure
 
-bla bla
 ```
 
 ---
@@ -576,6 +695,12 @@ more related to self-healing code here
 * Analyse code => powerful development tools
 * Generate code => mutation testing, generative programming
 * Visualise code => different analysis, new tools for devs?
+
+---
+
+## What does homoiconicity give us?
+
+# Many more cool things!
 
 ---
 
