@@ -10,13 +10,13 @@
   {:color 0
    :angle 0})
 
-(def rect-colour 40)
+;(def rect-colour 40)
 
-(defn draw-rect [x y]
-  (q/rect x y 20 40))
+;(defn draw-rect [x y]
+;  (q/rect x y 20 40))
 
-(defn draw-many-rects []
-  (doseq [x (range 10)] (draw-rect 0 x)))
+;(defn draw-many-rects []
+;  (doseq [x (range 10)] (draw-rect 0 x)))
 
 (defn draw-circle [colour n init-x init-y]
   (q/no-stroke)

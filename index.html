@@ -345,7 +345,7 @@ class: normal
 
 ## the adventure
 
-# part 1: visualise yourself
+# Part 1: Visualise yourself
 
 ---
 
@@ -353,7 +353,7 @@ class: normal
 
 ## the adventure
 
-# part 1: visualise yourself
+# Part 1: Visualise yourself
 
 # how I taught a program to draw stats on itself
 
@@ -362,13 +362,115 @@ class: normal
 layout: true
 class: normal
 
-## part 1: visualise yourself
+### Part 1: Visualise yourself
 
 ---
 
-[gif]
+## A small sketch made in Quil
 
-### this project changes background colour while you're working
+.center[![gif of visualise code project](images/sketch.gif)]
+
+
+---
+
+## Demonstrate how background color changes with more functions in ns
+
+.center[![gif of visualise code project](images/circles.gif)]
+
+---
+
+```clojure
+user=> (require 'visualise-code.core)
+nil
+```
+
+---
+
+```clojure
+user=> (require 'visualise-code.core)
+nil
+
+user=> (in-ns 'visualise-code.core)
+#object[clojure.lang.Namespace 0xcbb9c04 "visualise-code.core"]
+```
+
+---
+
+```clojure
+user=> (require 'visualise-code.core)
+nil
+
+user=> (in-ns 'visualise-code.core)
+#object[clojure.lang.Namespace 0xcbb9c04 "visualise-code.core"]
+
+visualise-code.core=> *ns*
+#object[clojure.lang.Namespace 0xcbb9c04 "visualise-code.core"]
+draw-status-bar draw-state update-state visualise-code draw-many-circles setup current-ns draw-circle)
+
+```
+
+---
+
+```clojure
+user=> (require 'visualise-code.core)
+nil
+
+user=> (in-ns 'visualise-code.core)
+#object[clojure.lang.Namespace 0xcbb9c04 "visualise-code.core"]
+
+visualise-code.core=> *ns*
+#object[clojure.lang.Namespace 0xcbb9c04 "visualise-code.core"]
+
+visualise-code.core=> (str *ns*)
+"visualise-code.core"
+
+```
+
+---
+
+```clojure
+user=> (require 'visualise-code.core)
+nil
+
+user=> (in-ns 'visualise-code.core)
+#object[clojure.lang.Namespace 0xcbb9c04 "visualise-code.core"]
+
+visualise-code.core=> *ns*
+#object[clojure.lang.Namespace 0xcbb9c04 "visualise-code.core"]
+
+visualise-code.core=> (str *ns*)
+"visualise-code.core"
+
+visualise-code.core=> (ns-publics *ns*)
+{draw-status-bar #'visualise-code.core/draw-status-bar, draw-state #'visualise-code.core/draw-state, update-state #'visualise-code.core/update-state, visualise-code #'visualise-code.core/visualise-code, draw-many-circles #'visualise-code.core/draw-many-circles, setup #'visualise-code.core/setup, current-ns #'visualise-code.core/current-ns, draw-circle #'visualise-code.core/draw-circle}
+(draw-status-bar draw-state update-state visualise-code draw-many-circles setup current-ns draw-circle)
+
+```
+
+---
+
+```clojure
+user=> (require 'visualise-code.core)
+nil
+
+user=> (in-ns 'visualise-code.core)
+#object[clojure.lang.Namespace 0xcbb9c04 "visualise-code.core"]
+
+visualise-code.core=> *ns*
+#object[clojure.lang.Namespace 0xcbb9c04 "visualise-code.core"]
+
+visualise-code.core=> (str *ns*)
+"visualise-code.core"
+
+visualise-code.core=> (ns-publics *ns*)
+{draw-status-bar #'visualise-code.core/draw-status-bar, draw-state #'visualise-code.core/draw-state, update-state #'visualise-code.core/update-state, visualise-code #'visualise-code.core/visualise-code, draw-many-circles #'visualise-code.core/draw-many-circles, setup #'visualise-code.core/setup, current-ns #'visualise-code.core/current-ns, draw-circle #'visualise-code.core/draw-circle}
+
+visualise-code.core=> (keys (ns-publics *ns*))
+(draw-status-bar draw-state update-state visualise-code draw-many-circles setup current-ns draw-circle)
+
+
+```
+
 
 ---
 
@@ -382,22 +484,33 @@ class: normal
 ```clojure
 
 (def current-ns *ns*)
+
 
 (defn draw-state [state]
   (let [fn-count (count (keys (ns-publics current-ns)))
         color (* (/ 1 (- fn-count 3) ) 255)]
     (q/background color)
     (q/stroke 0)
-    (q/text (str fn-count) 20 20)
-    (q/text (str color) 20 40)
-    (q/text (str current-ns) 20 60)))
+    ...
 
+```
+---
+
+```clojure
+
+(def current-ns *ns*)
+
+
+(defn draw-state [state]
+  (let [fn-count (count (keys (ns-publics current-ns)))
+        color (* (/ 1 (- fn-count 3) ) 255)]
+    (q/background color)
+    (q/stroke 0)
+    ...
 
 ```
 
----
-
-[ another gif ]
+## Other interesting functions for namespaces include 'ns-refers', 'ns-aliases', 'ns-interns'
 
 ---
 
@@ -411,18 +524,18 @@ layout: true
 
 ---
 
-## * it's easy for a Clojure program to read itself
+## ➡️️ It's easy for a Clojure program to read Clojure programs, even itself!
 
 ---
 
-## * it's easy for a Clojure program to read itself
-## * this "self-reading" feels like self-awareness - very futuristic!
+## ➡️️ It's easy for a Clojure program to read Clojure programs, even itself!
+## ➡️️ This "self-reading" feels like self-awareness
 
 ---
 
-## * it's easy for a Clojure program to read itself
-## * this "self-reading" feels like self-awareness - very futuristic!
-## * once you have program data, visualising it is trivial!
+## ➡️️ It's easy for a Clojure program to read Clojure programs, even itself!
+## ➡️️ This "self-reading" feels like self-awareness
+## ➡️️ Once you have program data, visualising it is trivial!
 
 ---
 
