@@ -418,7 +418,6 @@ user=> (in-ns 'visualise-code.core)
 
 visualise-code.core=> *ns*
 #object[clojure.lang.Namespace 0xcbb9c04 "visualise-code.core"]
-draw-status-bar draw-state update-state visualise-code draw-many-circles setup current-ns draw-circle)
 
 ```
 
@@ -456,7 +455,6 @@ visualise-code.core=> (str *ns*)
 
 visualise-code.core=> (ns-publics *ns*)
 {draw-status-bar #'visualise-code.core/draw-status-bar, draw-state #'visualise-code.core/draw-state, update-state #'visualise-code.core/update-state, visualise-code #'visualise-code.core/visualise-code, draw-many-circles #'visualise-code.core/draw-many-circles, setup #'visualise-code.core/setup, current-ns #'visualise-code.core/current-ns, draw-circle #'visualise-code.core/draw-circle}
-(draw-status-bar draw-state update-state visualise-code draw-many-circles setup current-ns draw-circle)
 
 ```
 
@@ -564,6 +562,12 @@ layout: true
 
 ---
 
+## _One thing I really appreciate with code as data in a language such as Clojure is the power of your editor. The power of an editor is related to how well it can interact and analyse code_
+
+## .right[Joseph Wilk](http://blogs.mulesoft.com/dev/news-dev/code-is-data-data-is-code/)
+
+---
+
 # Why we ❤️️ Clojure
 
 ---
@@ -580,10 +584,16 @@ layout: true
 
 ---
 
-layout: false
+layout: true
 class: normal
 ## take aways ➡️️
 <br> <br>
+
+---
+
+## ➡️️ the repl ; powerful editors ; live coding +++
+
+---
 
 ## ➡️️ the repl ; powerful editors ; live coding +++
 ## ➡️️ Homoiconicity is the base for awesome dev tooling in Clojure!
@@ -637,8 +647,8 @@ user=> (when (even? n) "n is an even number!")
 
 user=> (def n 43)
 #'user/n
-nil
 ```
+
 ---
 
 ```clojure
@@ -682,11 +692,12 @@ user=> (macroexpand (when (even? n) "n is an even number!"))
 user=> (when (even? n) "n is an even number!")
 "n is an even number!"
 
+user=> (macroexpand '(when (even? n) "n is an even number!"))
+(if (even? n) (do "n is an even number!"))
+
 user=> (macroexpand (when (even? n) "n is an even number!"))
 "n is an even number!"
 
-user=> (macroexpand '(when (even? n) "n is an even number!"))
-(if (even? n) (do "n is an even number!"))
 ```
 ---
 
@@ -713,11 +724,13 @@ layout: true
 
 ---
 
+layout: false
 class: normal
 
 # Part 4: The TweeGeeMee Bot
 
 ---
+class: normal
 ## Part 4: The TweeGeeMee Bot
 
 # A project by @rogerallen
@@ -760,11 +773,35 @@ class: normal
 ```clojure
 => (def code '(clisk.live/vdivide (clisk.live/vfrac (clisk.live/vmin (clisk.live/v+ (clisk.live/alpha clisk.live/grain) [-0.9438 0.4027 2.3753 1.7962]) (clisk.live/sigmoid (clisk.live/vfloor [0.4416 -2.6627 -1.6566])))) (clisk.live/gradient (clisk.live/square (clisk.live/v- [-0.2226 -2.2105 -2.7124 -1.7799] clisk.live/vsnoise)))))
 
+```
+
+---
+class: normal
+### Part 4: The TweeGeeMee Bot by @rogerallen
+
+## Reproducing the image
+
+```clojure
+=> (def code '(clisk.live/vdivide (clisk.live/vfrac (clisk.live/vmin (clisk.live/v+ (clisk.live/alpha clisk.live/grain) [-0.9438 0.4027 2.3753 1.7962]) (clisk.live/sigmoid (clisk.live/vfloor [0.4416 -2.6627 -1.6566])))) (clisk.live/gradient (clisk.live/square (clisk.live/v- [-0.2226 -2.2105 -2.7124 -1.7799] clisk.live/vsnoise)))))
+
 => (show (eval code) :width 720 :height 720)
 
 ```
 
-.center[![tweegeemee image screenshot](images/reproduced.png)]
+---
+class: normal
+### Part 4: The TweeGeeMee Bot by @rogerallen
+
+## Reproducing the image
+
+```clojure
+=> (def code '(clisk.live/vdivide (clisk.live/vfrac (clisk.live/vmin (clisk.live/v+ (clisk.live/alpha clisk.live/grain) [-0.9438 0.4027 2.3753 1.7962]) (clisk.live/sigmoid (clisk.live/vfloor [0.4416 -2.6627 -1.6566])))) (clisk.live/gradient (clisk.live/square (clisk.live/v- [-0.2226 -2.2105 -2.7124 -1.7799] clisk.live/vsnoise)))))
+
+=> (show (eval code) :width 720 :height 720)
+
+```
+
+.center[![tweegeemee image screenshot](images/eval-tweet.png)]
 
 ---
 
@@ -821,7 +858,6 @@ class: normal
 ## * Describe data using specs
 ## * Validate data against specs
 ## * Generate data from specs
-## * and some other things
 
 ---
 
@@ -872,25 +908,11 @@ more related to self-healing code here
 layout: false
 class: main, center
 
-<br>
+<br> <br>
 # Homo·icon·icity
 # is
 # ⚡⚡⚡ Clojure's superpower!! ⚡⚡⚡
 
-
----
-
-class: normal, center, middle
-
-# One last thing:
-
----
-
-class: normal, center, middle
-
-# One last thing:
-
-## Support your local ClojureBridge!
 
 ---
 
