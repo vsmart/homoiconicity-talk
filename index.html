@@ -145,21 +145,24 @@ user=> (+ 1 2)
 
 ```
 
-=> A list of the forms `+`, `1` and `2`.
+### * We add two numbers
+
+### * But also:
+
+### * A list of the forms +, 1 and 2.
 
 ---
+
 ```clojure
 user=> (def time-til-lunch (+ (* 1/2 30) 30 (rand-n 30))
 49N
 ```
 
-=> A list of the forms `def`, `time-til-lunch`, `'(+ (* 1/2 30) 30 (rand-n 30))`
+### * We `def` the time until lunch
 
----
+### * But also:
 
-class: normal
-
-## It's ~~turtles~~ the same data structures all the way down!
+### * A list of the forms def, time-til-lunch, '(+ (* 1/2 30) 30 (rand-n 30))
 
 ---
 
@@ -167,24 +170,33 @@ class: normal
 
 # EDN: Extensible Data Notation
 
-### The set of data structures Clojure uses
+### The set of values Clojure "knows"
 
 ```clojure
-* Sequences '(1 2 3)
 
-* Vectors [1 2 3]
+* integers 1, 2
 
-* Numbers 1, 2
+* strings "ohai"
+
+* booleans true false
+
+* lists (1 2 3)
+
+* vectors [1 2 3]
+
+* maps {:a 1 :b 2}
+
 ```
+---
 
-???
+## Clojure programs are represented in (a superset of) EDN
 
-* kind of like JSON to Javascript
+## Clojure programs handle data that is (a superset of) EDN
 
 ---
 
 class: normal
-## In Clojure we have \`quote\` and \`eval\`.
+## Exploring \`quote\` and \`eval\`.
 
 ---
 layout: true
@@ -265,32 +277,12 @@ user=> (eval '(+ 1 5))
 layout: false
 class: normal
 
-## These are some of the building blocks of homoiconicity.
-
----
-layout: false
-class: normal, center
-
-## What makes this power ... so powerful? 🤔
-
----
-
-layout: false
-class: normal, center
-
-## What makes this power ... so powerful? 🤔
-
-## In other words: what does it let us do?
----
-
-layout: false
-class: normal
-# Clojure programmers are used to handling data.
+## eval & quote: really useful tools!
 
 ---
 
 class: normal
-# What can we do with data?
+# We are data-driven
 
 ---
 
@@ -335,15 +327,7 @@ class: normal
 # * Generate more code! 💧
 
 ---
-
 layout: false
-class: main
-# Let's find out!
-# and go on an adventure! ✌️️
-<br><br>
-
----
-
 class: main, middle, center
 
 # Part 1: Visualise yourself
@@ -355,7 +339,7 @@ class: main, middle, center
 <br><br>
 <br><br>
 
-.left[#### \#dzy]
+#### .left[ \#dzy]
 
 ---
 
@@ -869,7 +853,7 @@ class: normal
 layout: false
 class: main, center, middle
 
-# Part 4: Self-healing Code by Carin Meier / @gigasquid
+# Part 5: Self-healing Code by Carin Meier / @gigasquid
 
 ### Recorded at [EuroClojure 2016](https://www.youtube.com/watch?v=xvk-Gnydn54)
 ### Code is at github.com/gigasquid/self-healing
@@ -883,7 +867,7 @@ class: normal
 
 # Codephage - Horizontal Code Transfer Systems
 
-# _"...fixes software errors by transferring correct code from a set of donor applications"_
+## _"...fixes software errors by transferring correct code from a set of donor applications"_
 
 <br><br>
 
