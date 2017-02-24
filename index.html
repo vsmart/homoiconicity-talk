@@ -684,13 +684,34 @@ nil
 
 ## macroexpand: a neat tool
 
+```clojure
+user=> (macroexpand '(when (even? n) (println "n is an even number!") n)
+(if (even? n) (do (println "n is an even number!") n))
+
+```
+---
+
+## macroexpand: a neat tool
 
 ```clojure
 user=> (macroexpand '(when (even? n) (println "n is an even number!") n)
 (if (even? n) (do (println "n is an even number!") n))
 
 user=> (macroexpand (when (even? n) (println "n is an even number!") n))
-"n is an even number!"
+n is an even number!
+42
+```
+---
+
+## macroexpand: a neat tool
+
+```clojure
+
+user=> (if-not (even? 41) "not an even number")
+"not an even number!"
+
+user=> (macroexpand '(if-not (even? 41) "not an even number"))
+(if (clojure.core/not (even? 41)) "not an even number!" nil)
 
 ```
 ---
@@ -803,18 +824,20 @@ layout: true
 
 ---
 
-## ➡️️  We can generate code - like data - through generative programming!
-
----
-
-## ➡️️  We can generate code - like data - through generative programming!
-## ➡️️  Generative programming is great for generative art
-
----
-
-## ➡️️  We can generate code - like data - through generative programming!
-## ➡️️  Generative programming is great for generative art
 ## ➡️️  We can share, store, reproduce results easily - since code is data
+
+---
+
+## ➡️️  We can share, store, reproduce results easily - since code is data
+## ➡️️  We can generate code - like data - through generative programming!
+
+
+
+---
+
+## ➡️️  We can share, store, reproduce results easily - since code is data
+## ➡️️  We can generate code - like data - through generative programming!
+## ➡️️  Generative programming is great for generative art
 
 ---
 layout: true
