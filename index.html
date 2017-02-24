@@ -635,13 +635,12 @@ class: normal
 
 ---
 
-## Macros are very present in everyday Clojure programming.
+# Using Macros
 
-## (even when you don't know you're using them!)
+## Macros are very common in everyday Clojure programming.
 
----
+## e.g.  `or`, `and`, `when`
 
-## `or`, `and`, `when`
 ---
 
 ```clojure
@@ -654,8 +653,11 @@ user=> (def n 42)
 user=> (def n 42)
 #'user/n
 
-user=> (when (even? n) "n is an even number!")
-"n is an even number!"
+user=> (when (even? n)
+          (println "n is an even number!")
+          n)
+n is an even number!
+42
 ```
 ---
 
@@ -663,8 +665,11 @@ user=> (when (even? n) "n is an even number!")
 user=> (def n 42)
 #'user/n
 
-user=> (when (even? n) "n is an even number!")
-"n is an even number!"
+user=> (when (even? n)
+          (println "n is an even number!")
+          n)
+n is an even number!
+42
 
 user=> (def n 43)
 #'user/n
@@ -676,13 +681,18 @@ user=> (def n 43)
 user=> (def n 42)
 #'user/n
 
-user=> (when (even? n) "n is an even number!")
-"n is an even number!"
+user=> (when (even? n)
+          (println "n is an even number!")
+          n)
+n is an even number!
+42
 
 user=> (def n 43)
 #'user/n
 
-user=> (when (even? n) "n is an even number!")
+user=> (when (even? n)
+          (println "n is an even number!")
+          n)
 nil
 ```
 
@@ -695,31 +705,17 @@ class: normal
 ---
 
 ```clojure
-user=> (when (even? n) "n is an even number!")
+user=> (macroexpand '(when (even? n) (println "n is an even number!") n)
+(if (even? n) (do (println "n is an even number!") n))
+
+user=> (macroexpand (when (even? n) (println "n is an even number!") n))
 "n is an even number!"
+
 ```
 ---
 
-```clojure
-user=> (when (even? n) "n is an even number!")
-"n is an even number!"
+# Do we write macros?
 
-user=> (macroexpand (when (even? n) "n is an even number!"))
-"n is an even number!"
-```
----
-
-```clojure
-user=> (when (even? n) "n is an even number!")
-"n is an even number!"
-
-user=> (macroexpand '(when (even? n) "n is an even number!"))
-(if (even? n) (do "n is an even number!"))
-
-user=> (macroexpand (when (even? n) "n is an even number!"))
-"n is an even number!"
-
-```
 ---
 
 class: normal
@@ -730,18 +726,12 @@ layout: true
 
 ---
 
-## ➡️️  Homoiconicity allows for meta-programming
+## ➡️️  Homoiconicity allows us to extend the language by writing macros
 
 ---
 
-## ➡️️  Homoiconicity allows for meta-programming
-## ➡️️  Writing macros let us extend the language
-
----
-
-## ➡️️  Homoiconicity allows for meta-programming
-## ➡️️  Writing macros let us extend the language
-## ➡️️  Writing macros let us create our own language!
+## ➡️️  Homoiconicity allows us to extend the language by writing macros
+## ➡️️  Turns out Clojure programmers don't write macros that often!
 
 ---
 
