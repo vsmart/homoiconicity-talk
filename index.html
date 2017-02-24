@@ -697,12 +697,9 @@ nil
 ```
 
 ---
-layout: true
-class: normal
-### Part 3: Macros
-## macroexpand: a neat trick!
 
----
+## macroexpand: a neat tool
+
 
 ```clojure
 user=> (macroexpand '(when (even? n) (println "n is an even number!") n)
@@ -714,7 +711,7 @@ user=> (macroexpand (when (even? n) (println "n is an even number!") n))
 ```
 ---
 
-# Do we write macros?
+# Are we writing macros?
 
 ---
 
