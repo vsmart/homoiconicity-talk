@@ -28,10 +28,19 @@
           y [120 160 200 240 280 320 360 400 440 480]]
     (draw-circle n n 20 y)))
 
-(defn draw-status-bar []
-  (let [fn-count (count (keys (ns-publics current-ns)))
-       color (* (/ 1 (- fn-count 3) ) 255)]
-    (q/background color)
+(defn draw-background [state]
+  (let [fn-count (:fn-count state)
+       color (* (/ 1 (- fn-count 3)) 255)]
+    (q/background color)))
+
+(defn draw-fn-circles [state]
+  (doseq [n (range (:fn-count state))]
+    (q/fill (rand-int 255))
+    (q/ellipse (rand-int (q/width)) (rand-int (q/height)) 20 20)))
+_
+(defn draw-status-bar [state]
+  (let [fn-count (:fn-count state)
+       color (* (/ 1 (- fn-count 3)) 255)]
     (q/fill 255)
     (q/rect 0 0 (q/width) 80)
     (q/fill 0)
@@ -40,11 +49,13 @@
     (q/text (str current-ns ": current ns") 20 60)))
 
 (defn draw-state [state]
-  (draw-status-bar)
-  (draw-many-circles))
+  (draw-background state)
+  (draw-status-bar state)
+;  (draw-many-circles)
+  (draw-fn-circles state))
 
 (defn update-state [state]
-  state)
+  (assoc state :fn-count (count (keys (ns-publics current-ns)))))
 
 (q/defsketch visualise-code
   :title "visualise the code"
