@@ -34,10 +34,11 @@
     (q/background color)))
 
 (defn draw-fn-circles [state]
-  (doseq [n (range (:fn-count state))]
+  (doseq [n (range (:fn-count state))
+          lines (rand-int 10)]
     (q/fill (rand-int 255))
     (q/ellipse (rand-int (q/width)) (rand-int (q/height)) 20 20)))
-_
+
 (defn draw-status-bar [state]
   (let [fn-count (:fn-count state)
        color (* (/ 1 (- fn-count 3)) 255)]
@@ -46,13 +47,18 @@ _
     (q/fill 0)
     (q/text (str fn-count ": public defs in this ns") 20 20)
     (q/text (str color ": current color") 20 40)
-    (q/text (str current-ns ": current ns") 20 60)))
+    (q/text (str current-ns ": current ns") 20 60)
+    (q/text (str (q/frame-count)) 400 20)))
+
+(defn every-n-frames [n]
+  (< (mod (q/frame-count) n) 2))
 
 (defn draw-state [state]
   (draw-background state)
   (draw-status-bar state)
 ;  (draw-many-circles)
-  (draw-fn-circles state))
+  (when (every-n-frames 100)
+    (draw-fn-circles state)))
 
 (defn update-state [state]
   (assoc state :fn-count (count (keys (ns-publics current-ns)))))
