@@ -57,61 +57,36 @@ layout: true
 class: normal, middle, center
 ---
 
-# Hi, I'm Franka :wave: (@franschm)
+# Hi, I'm Franka :wave:
 
 ## * Platform engineer at Mapbox!
 ## * :cycle:, :code:, :cook: in Berlin
 ## * ClojureBridge Organizer
+
+### @franschm
 ---
 
 ![clojurebridge logo](images/clojurebridge.png)
 
 # ❤️️ Support your local ClojureBridge ❤️️
 
-### Checkout out @ClojureBridgeDe on Twitter or clojurebridge-berlin.org
-
----
-
-# Code is Data.
-
----
-
-# Code is Data.
-
-# Data is Code?
-
----
-
-# Homo·icon·icity
-
----
-
-# Homo·icon·icity
-# is
-# ⚡⚡⚡ Clojure's superpower!! ⚡⚡⚡
-
----
-
-# Adventures in Homo·icon·icity
+## or find a ScalaBridge, RailsGirls, Trans*Hacks, LesbiansWhoTech, ...
 
 ---
 
 # #dzy
 
 ---
-layout: false
-class: main, center, middle
 
-# Homo·icon·icity
-# is
-# ⚡⚡⚡ Clojure's superpower!! ⚡⚡⚡
+# Code is Data.
+
+# Data is Code!
 
 ---
 
-layout: true
-class: normal
-
-## Homo·icon·icity
+# Homoiconicity
+# is
+# ⚡⚡⚡ Clojure's superpower!! ⚡⚡⚡
 
 ---
 
@@ -123,7 +98,6 @@ class: normal
 
 ---
 
-<br><br><br>
 # [homo] · _Greek_ · 'same'
 
 # [icon] · _Greek_ · 'representation'
@@ -306,8 +280,10 @@ user=> (def n 42)
 
 user=> (when (even? n)
           (println "n is an even number!")
+          (println "n is: " n)
           n)
 n is an even number!
+n is: 42
 42
 ```
 ---
@@ -318,8 +294,10 @@ user=> (def n 42)
 
 user=> (when (even? n)
           (println "n is an even number!")
+          (println "n is: " n)
           n)
 n is an even number!
+n is: 42
 42
 
 user=> (def n 43)
@@ -334,8 +312,10 @@ user=> (def n 42)
 
 user=> (when (even? n)
           (println "n is an even number!")
+          (println "n is: " n)
           n)
 n is an even number!
+n is: 42
 42
 
 user=> (def n 43)
@@ -343,6 +323,7 @@ user=> (def n 43)
 
 user=> (when (even? n)
           (println "n is an even number!")
+          (println "n is: " n)
           n)
 nil
 ```
@@ -353,7 +334,7 @@ nil
 
 ```clojure
 user=> (macroexpand '(when (even? n) (println "n is an even number!") n)
-(if (even? n) (do (println "n is an even number!") n))
+(if (even? n) (do (println "n is an even number!") (println "n is: " n) n))
 
 ```
 ---
@@ -362,10 +343,11 @@ user=> (macroexpand '(when (even? n) (println "n is an even number!") n)
 
 ```clojure
 user=> (macroexpand '(when (even? n) (println "n is an even number!") n)
-(if (even? n) (do (println "n is an even number!") n))
+(if (even? n) (do (println "n is an even number!") (println "n is: " n) n))
 
-user=> (macroexpand (when (even? n) (println "n is an even number!") n))
+user=> (macroexpand (when (even? n) (println "n is an even number!") (println "n is: " n) n))
 n is an even number!
+n is: 42
 42
 ```
 ---
@@ -385,12 +367,26 @@ user=> (macroexpand '(if-not (even? 41) "not an even number"))
 # Are we writing macros?
 ---
 
-## ➡️️  Homoiconicity allows us to extend the language by writing macros
-## ➡️️  Turns out Clojure programmers don't write macros that often!
+class: normal
+layout: true
+
+## take aways ➡️️
+<br> <br>
 
 ---
 
-# Code as Data
+## ➡️️ Homoiconicity: code is data, data is code
+
+---
+
+## ➡️️ Homoiconicity: code is data, data is code
+## ➡️️ 'quote' and 'eval' are useful tools
+
+---
+
+## ➡️️ Homoiconicity: code is data, data is code
+## ➡️️ 'quote' and 'eval' are useful tools
+## ➡️️ we can extend the language by writing macros
 
 ---
 
@@ -660,12 +656,12 @@ layout: true
 class: main, middle, center
 layout: false
 
-# Part 2: Dev tooling!
+# Part 2: Dev tooling and Testing
 
 ---
 class: normal
 layout: true
-## Part 2: Dev Tooling
+## Part 2: Dev Tooling and Testing
 
 ---
 
@@ -698,6 +694,45 @@ layout: true
 
 ---
 
+# Mutation Testing
+
+---
+
+# Mutation Testing
+
+## Testing the completeness of your test suite through mutating your code
+
+---
+
+# Mutation Testing
+
+## Testing the completeness of your test suite through mutating your code
+## If the tests still pass with mutated code, they're incomplete
+
+---
+
+# Mutation Testing
+
+## Testing the completeness of your test suite through mutating your code
+## If the tests still pass with mutated code, they're incomplete
+## A surviving mutant shows you which mutation causes the alarming test
+
+---
+
+# Examples of mutations
+
+## * if => if-not
+## * switch around operators e.g. +,-
+## * delete entire forms
+
+---
+
+# Mutant: Mutation testing in Clojure, by @janstepien
+
+* lets look at some code example!
+
+---
+
 layout: true
 class: normal
 ## take aways ➡️️
@@ -711,6 +746,12 @@ class: normal
 
 ## ➡️️ the repl ; powerful editors ; live coding +++
 ## ➡️️ Homoiconicity is the base for awesome dev tooling in Clojure!
+
+---
+
+## ➡️️ the repl ; powerful editors ; live coding +++
+## ➡️️ Homoiconicity is the base for awesome dev tooling in Clojure!
+## ➡️️ Mutation testing: generating code, like data, is simple!
 
 ---
 
@@ -964,14 +1005,19 @@ layout: true
 
 ---
 
-# Many more cool things!
+## * Extending our language with macros and DSLs
+## * Analyse code => powerful development tools
+## * Generate code => mutation testing, generative programming
+## * Visualise code => different analysis, new tools for devs?
+
+# * Many more cool things!
 
 ---
 
 layout: false
 class: main, center, middle
 
-# Homo·icon·icity
+# Homoiconicity
 # is
 # ⚡⚡⚡ Clojure's superpower!! ⚡⚡⚡
 
@@ -980,9 +1026,9 @@ class: main, center, middle
 class: center, middle, main
 # thank you 💖
 
-### Slides are at franka.tech/talks/homoiconicity-talk
+### Slides are at https://franka.tech/talks/homoiconicity-talk
 
-### Find me at hello@franka.tech or on twitter @franschm
+### Find me on https://franka.tech or on twitter @franschm
 
 
     </textarea>
