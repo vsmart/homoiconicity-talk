@@ -34,8 +34,7 @@
     (q/background color)))
 
 (defn draw-fn-circles [state]
-  (doseq [n (range (:fn-count state))
-          lines (rand-int 10)]
+  (doseq [n (range (:fn-count state))]
     (q/fill (rand-int 255))
     (q/ellipse (rand-int (q/width)) (rand-int (q/height)) 20 20)))
 
@@ -50,14 +49,16 @@
     (q/text (str current-ns ": current ns") 20 60)
     (q/text (str (q/frame-count)) 400 20)))
 
+(defn clear-canvas []
+  (draw-background 10))
+
 (defn every-n-frames [n]
-  (< (mod (q/frame-count) n) 2))
+  (= (mod (q/frame-count) n) 0))
 
 (defn draw-state [state]
-  (draw-background state)
   (draw-status-bar state)
-;  (draw-many-circles)
-  (when (every-n-frames 100)
+  (when (every-n-frames 10)
+    (clear-canvas)
     (draw-fn-circles state)))
 
 (defn update-state [state]
