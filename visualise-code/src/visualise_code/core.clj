@@ -50,16 +50,16 @@
     (q/text (str (q/frame-count)) 400 20)))
 
 (defn clear-canvas []
-  (draw-background 10))
+  (q/background 10))
 
 (defn every-n-frames [n]
   (= (mod (q/frame-count) n) 0))
 
 (defn draw-state [state]
-  (draw-status-bar state)
   (when (every-n-frames 10)
     (clear-canvas)
-    (draw-fn-circles state)))
+    (draw-fn-circles state))
+  (draw-status-bar state))
 
 (defn update-state [state]
   (assoc state :fn-count (count (keys (ns-publics current-ns)))))
