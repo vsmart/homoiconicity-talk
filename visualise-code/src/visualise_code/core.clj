@@ -7,8 +7,10 @@
 (defn setup []
   (q/frame-rate 3)
   (q/color-mode :hsb)
-  {:color 0
-   :angle 0})
+  (q/background 10)
+  (let [state {:color 0 :angle 0}]
+    (draw-status-bar state)
+    state))
 
 ;(def rect-colour 40)
 
@@ -36,7 +38,7 @@
 (defn draw-fn-circles [state]
   (doseq [n (range (:fn-count state))]
     (q/fill (rand-int 255))
-    (q/ellipse (rand-int (q/width)) (rand-int (q/height)) 20 20)))
+    (q/ellipse 20 (+ (* n 25) 90) 20 20)))
 
 (defn draw-status-bar [state]
   (let [fn-count (:fn-count state)
