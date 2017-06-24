@@ -60,7 +60,7 @@ class: normal, middle, center
 # Hi, I'm Franka :wave:
 
 ## * Platform engineer at Mapbox!
-## * :cycle:, :code:, :cook: in Berlin
+## * :cycle:, :code:, :cook:, :live: in Berlin
 ## * ClojureBridge Organizer
 
 ### @franschm
@@ -693,43 +693,55 @@ layout: true
 ## Live coding!
 
 ---
-
-# Mutation Testing
-
+layout: true
+class: normal
 ---
 
 # Mutation Testing
 
-## Testing the completeness of your test suite through mutating your code
-
+# "Who tests our tests?"
 ---
 
 # Mutation Testing
 
-## Testing the completeness of your test suite through mutating your code
-## If the tests still pass with mutated code, they're incomplete
+## __Mutating your code__ in order to __test the completeness of your test suite__
 
 ---
 
-# Mutation Testing
+# Examples of mutations
+## * switch around operators e.g. +,-
 
-## Testing the completeness of your test suite through mutating your code
-## If the tests still pass with mutated code, they're incomplete
-## A surviving mutant shows you which mutation causes the alarming test
+```clojure
+(< x 10) => (> x 10)
+
+(+ x 10) => (- x 10)
+```
 
 ---
 
 # Examples of mutations
 
 ## * if => if-not
-## * switch around operators e.g. +,-
-## * delete entire forms
 
+```clojure
+(if (= a b) ...)  =>  (if-not (= a b) ...)
+```
 ---
 
-# Mutant: Mutation testing in Clojure, by @janstepien
+# Examples of mutations
+## * delete entire forms
 
-* lets look at some code example!
+```clojure
+(defn do-some-maths [a b]
+  (* a b 3))
+
+
+(defn do-some-maths [a b]
+  ())
+```
+---
+
+?
 
 ---
 
