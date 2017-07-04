@@ -47,23 +47,26 @@ class: center, middle, main
 
 # Adventures in Homoiconicity
 
-### An exploration by Franziska Schmidt
+### An exploration by Franka Schmidt
 
 <br> <br> <br> <br>
 ### PolyConf 2017 in Paris
 
 ---
+
 layout: true
 class: normal, middle, center
+
 ---
 
 # Hi, I'm Franka :wave:
 
 ## * Platform engineer at Mapbox!
-## * :cycle:, :code:, :cook:, :live: in Berlin
+## * :cycle:, :code:, :live: in Berlin
 ## * ClojureBridge Organizer
 
 ### @franschm
+
 ---
 
 ![clojurebridge logo](images/clojurebridge.png)
@@ -134,7 +137,7 @@ user=> (def time-till-weekend (+ (* 2 24) (+ 15 (rand-int 5))
 
 ### * But also:
 
-### \* A list of the forms def, time-till-weekend, '(+ (* 1/2 30) 30 (rand-n 30))
+### * A list of the forms def, time-till-weekend, '(+ (* 1/2 30) 30 (rand-n 30))
 
 ---
 
@@ -167,20 +170,26 @@ class: normal
 
 ---
 
-<br><br>
-# .center[It's easy to <br> <br>  write, manipulate and reason about Clojure programs <br> <br> with Clojure.]
-
----
-
-class: normal
-## Exploring \`quote\` and \`eval\`.
+# Therefore,
+# It's really easy to write, manipulate and reason about Clojure programs with Clojure.
 
 ---
 layout: true
 class: normal
 
+---
+background-image: url(images/hammer.jpg)
+
+# \`quote\` and \`eval\`: 2 types of hammers
+
+---
+
+layout: true
+class: normal
 ### quote and eval
+
 # quote: Treat a form as Data
+---
 
 ---
 
@@ -268,68 +277,6 @@ class: normal
 
 ---
 
-```clojure
-user=> (def n 42)
-#'user/n
-```
----
-
-```clojure
-user=> (def n 42)
-#'user/n
-
-user=> (when (even? n)
-          (println "n is an even number!")
-          (println "n is: " n)
-          n)
-n is an even number!
-n is: 42
-42
-```
----
-
-```clojure
-user=> (def n 42)
-#'user/n
-
-user=> (when (even? n)
-          (println "n is an even number!")
-          (println "n is: " n)
-          n)
-n is an even number!
-n is: 42
-42
-
-user=> (def n 43)
-#'user/n
-```
-
----
-
-```clojure
-user=> (def n 42)
-#'user/n
-
-user=> (when (even? n)
-          (println "n is an even number!")
-          (println "n is: " n)
-          n)
-n is an even number!
-n is: 42
-42
-
-user=> (def n 43)
-#'user/n
-
-user=> (when (even? n)
-          (println "n is an even number!")
-          (println "n is: " n)
-          n)
-nil
-```
-
----
-
 ## macroexpand: a neat tool
 
 ```clojure
@@ -364,9 +311,6 @@ user=> (macroexpand '(if-not (even? 41) "not an even number"))
 ```
 ---
 
-# Are we writing macros?
----
-
 class: normal
 layout: true
 
@@ -380,11 +324,18 @@ layout: true
 ---
 
 ## ➡️️ Homoiconicity: code is data, data is code
+## ➡️️ Clojure is data-oriented, Homoiconicity reflects that
+
+---
+
+## ➡️️ Homoiconicity: code is data, data is code
+## ➡️️ Clojure is data-oriented, Homoiconicity reflects that
 ## ➡️️ 'quote' and 'eval' are useful tools
 
 ---
 
 ## ➡️️ Homoiconicity: code is data, data is code
+## ➡️️ Clojure is data-oriented, Homoiconicity reflects that
 ## ➡️️ 'quote' and 'eval' are useful tools
 ## ➡️️ we can extend the language by writing macros
 
@@ -741,7 +692,14 @@ class: normal
 ```
 ---
 
-?
+# Generating code :check: like data easily!
+
+```clojure
+this should be a sample of how we manipulate code in mutant
+this should be a sample of how we manipulate code in mutant
+this should be a sample of how we manipulate code in mutant
+this should be a sample of how we manipulate code in mutant
+```
 
 ---
 
@@ -770,7 +728,7 @@ class: normal
 layout: false
 class: main, middle, center
 
-# Part 4: The TweeGeeMee Bot by Roger Allen
+# Part 3: The TweeGeeMee Bot by Roger Allen
 
 
 ### Try it out at twitter.com/tweegeemee
@@ -779,13 +737,13 @@ class: main, middle, center
 ---
 
 class: normal
-### Part 4: The TweeGeeMee Bot by @rogerallen
+### Part 3: The TweeGeeMee Bot by @rogerallen
 
 .center[![TweeGeeMee bot tweet](images/tweet.png)]
 
 ---
 class: normal
-### Part 4: The TweeGeeMee Bot by @rogerallen
+### Part 3: The TweeGeeMee Bot by @rogerallen
 
 ## Inspecting one entity
 
@@ -807,7 +765,7 @@ class: normal
 
 ---
 class: normal
-### Part 4: The TweeGeeMee Bot by @rogerallen
+### Part 3: The TweeGeeMee Bot by @rogerallen
 
 ## Reproducing the image
 
@@ -818,7 +776,7 @@ class: normal
 
 ---
 class: normal
-### Part 4: The TweeGeeMee Bot by @rogerallen
+### Part 3: The TweeGeeMee Bot by @rogerallen
 
 ## Reproducing the image
 
@@ -831,7 +789,7 @@ class: normal
 
 ---
 class: normal
-### Part 4: The TweeGeeMee Bot by @rogerallen
+### Part 3: The TweeGeeMee Bot by @rogerallen
 
 ## Reproducing the image
 
@@ -860,8 +818,6 @@ layout: true
 
 ## ➡️️  We can share, store, reproduce results easily - since code is data
 ## ➡️️  We can generate code - like data - through generative programming!
-
-
 
 ---
 
@@ -906,7 +862,7 @@ class: normal
 layout: false
 class: main, center, middle
 
-# Part 5: Self-healing Code by Carin Meier / @gigasquid
+# Part 4: Self-healing Code by Carin Meier / @gigasquid
 
 ### Recorded at [EuroClojure 2016](https://www.youtube.com/watch?v=xvk-Gnydn54)
 ### Code is at github.com/gigasquid/self-healing
@@ -914,7 +870,7 @@ class: main, center, middle
 ---
 layout: true
 class: normal
-### Part 5: Self-healing Code by @gigasquid
+### Part 4: Self-healing Code by @gigasquid
 
 ---
 
