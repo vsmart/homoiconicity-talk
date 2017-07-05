@@ -695,12 +695,37 @@ class: normal
 # Generating code :check: like data easily!
 
 ```clojure
-this should be a sample of how we manipulate code in mutant
-this should be a sample of how we manipulate code in mutant
-this should be a sample of how we manipulate code in mutant
-this should be a sample of how we manipulate code in mutant
+(def ^:private gt-gte
+  (swapping-mutation '<= '<))
+
+(def ^:private lt-lte
+  (swapping-mutation '>= '>))
+
 ```
 
+---
+
+# Generating code :check: like data easily!
+
+```clojure
+
+(def ^:private and-or
+  (swapping-mutation 'and 'or))
+
+(def ^:private empty?-seq
+  (swapping-mutation 'empty? 'seq))
+
+```
+
+---
+
+# Generating code :check: like data easily!
+
+
+```clojure
+(def ^:private eq-noteq
+  (swapping-mutation '= 'not=))
+```
 ---
 
 layout: true
