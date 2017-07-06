@@ -129,15 +129,15 @@ user=> (+ 1 2)
 ---
 
 ```clojure
-user=> (def time-till-weekend (+ (* 2 24) (+ 15 (rand-int 5))
+user=> (def time-till-coffee-break (+ (* 5 30) (rand-int 10)))
 64
 ```
-
-### * We define the time left until the weekend
+### * We define the time left until the coffee break
 
 ### * But also:
 
-### * A list of the forms def, time-till-weekend, '(+ (* 1/2 30) 30 (rand-n 30))
+### * A list of the forms def, time-till-coffee-break, and
+`(+ (* 5 30) (rand-int 10))`
 
 ---
 
@@ -145,7 +145,7 @@ class: normal
 
 # EDN: Extensible Data Notation
 
-### The set of values Clojure "knows"
+### The set of types Clojure knows
 
 ```clojure
 
@@ -653,6 +653,9 @@ class: normal
 # "Who tests our tests?"
 ---
 
+# Mutation Testing
+
+---
 # Mutation Testing
 
 ## __Mutating your code__ in order to __test the completeness of your test suite__
