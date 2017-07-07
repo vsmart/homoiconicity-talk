@@ -9,7 +9,6 @@
   (q/color-mode :hsb)
   (q/background 10)
   (let [state {:color 0 :angle 0}]
-    (draw-status-bar state)
     state))
 
 ;(def rect-colour 40)
@@ -32,8 +31,10 @@
 
 (defn draw-background [state]
   (let [fn-count (:fn-count state)
-       color (* (/ 1 (- fn-count 3)) 255)]
-    (q/background color)))
+        h (mod (* 20 fn-count) 360)
+        s 130
+        b 200]
+    (q/background (q/color h s b))))
 
 (defn draw-fn-circles [state]
   (doseq [n (range (:fn-count state))]
@@ -58,8 +59,8 @@
   (= (mod (q/frame-count) n) 0))
 
 (defn draw-state [state]
-  (when (every-n-frames 10)
-    (clear-canvas)
+  (when (every-n-frames 5)
+    (draw-background state)
     (draw-fn-circles state))
   (draw-status-bar state))
 
