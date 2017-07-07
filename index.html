@@ -405,7 +405,7 @@ class: normal
 
 ---
 
-.center[![gif of visualise code project](images/visual.jpg)]
+.center[![gif of visualise code project](images/visual)]
 
 ---
 
@@ -556,13 +556,8 @@ visualise-code.core=> (keys (ns-publics *ns*))
 
 (def current-ns *ns*)
 
-
-(defn draw-state [state]
-  (let [fn-count (count (keys (ns-publics current-ns)))
-        color (* (/ 1 (- fn-count 3) ) 255)]
-    (q/background color)
-    (q/stroke 0)
-    ...
+(defn update-state [state]
+  (assoc state :fn-count (count (keys (ns-publics current-ns)))))
 
 ```
 ---
@@ -571,15 +566,17 @@ visualise-code.core=> (keys (ns-publics *ns*))
 
 (def current-ns *ns*)
 
+(defn update-state [state]
+  (assoc state :fn-count (count (keys (ns-publics current-ns)))))
 
-(defn draw-state [state]
-  (let [fn-count (count (keys (ns-publics current-ns)))
-        color (* (/ 1 (- fn-count 3) ) 255)]
-    (q/background color)
-    (q/stroke 0)
-    ...
-
+(defn draw-background [state]
+  (let [fn-count (:fn-count state)
+        h (mod (* 18 fn-count) 360)
+        s 160
+        b 200]
+    (q/background (q/color h s b))))
 ```
+---
 
 ## Other interesting functions for namespaces include 'ns-refers', 'ns-aliases', 'ns-interns'
 
