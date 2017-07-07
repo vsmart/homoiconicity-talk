@@ -274,7 +274,41 @@ class: normal
 ## Macros are very common in everyday Clojure programming.
 
 ## e.g.  `or`, `and`, `when`
+---
 
+## macroexpand: a neat tool
+
+```clojure
+user=> (if-not (even? 41) "not an even number")
+"not an even number!"
+
+user=> (macroexpand '(if-not (even? 41) "not an even number"))
+(if (clojure.core/not (even? 41)) "not an even number!" nil)
+
+```
+---
+
+## macroexpand: a neat tool
+
+```clojure
+user => (def n 42)
+#'user/n
+```
+
+---
+
+## macroexpand: a neat tool
+
+```clojure
+user => (def n 42)
+#'user/n
+
+user => (when (even? n) (println "n is an even number!") (println "n is: " n) n)
+n is an even number!
+n is: 42
+42
+
+```
 ---
 
 ## macroexpand: a neat tool
@@ -296,18 +330,6 @@ user=> (macroexpand (when (even? n) (println "n is an even number!") (println "n
 n is an even number!
 n is: 42
 42
-```
----
-
-## macroexpand: a neat tool
-
-```clojure
-user=> (if-not (even? 41) "not an even number")
-"not an even number!"
-
-user=> (macroexpand '(if-not (even? 41) "not an even number"))
-(if (clojure.core/not (even? 41)) "not an even number!" nil)
-
 ```
 ---
 
