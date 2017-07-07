@@ -44,13 +44,10 @@
 (defn draw-status-bar [state]
   (let [fn-count (:fn-count state)
        color (* (/ 1 (- fn-count 3)) 255)]
-    (q/fill 255)
-    (q/rect 0 0 (q/width) 80)
     (q/fill 0)
-    (q/text (str fn-count ": public defs in this ns") 20 20)
-    (q/text (str color ": current color") 20 40)
-    (q/text (str current-ns ": current ns") 20 60)
-    (q/text (str (q/frame-count)) 400 20)))
+    (q/text (str "Function count: " fn-count) 250 250)
+    (q/text (str "Current ns: " current-ns) 250 200)
+    (q/text (str "Frame count: " (q/frame-count)) 350 50)))
 
 (defn clear-canvas []
   (q/background 10))
